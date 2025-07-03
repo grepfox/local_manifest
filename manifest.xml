@@ -6,7 +6,7 @@
 	<project path="kernel/xiaomi/sm8150" name="sm8150-playground/kernel_xiaomi_sm8150" revision="sixteen" remote="github-remote-sm-play"/>	
 	<project path="device/xiaomi/sm8150-common" name="sm8150-playground/device_xiaomi_sm8150-common" revision="lineage-23.0" remote="github-remote-sm-play"/>	
 	<project path="vendor/xiaomi/vayu" name="sm8150-playground/vendor_xiaomi_vayu" revision="sixteen" remote="github-remote-sm-play"/>	
-	<project path="device/xiaomi/sm8150-common" name="sm8150-playground/vendor_xiaomi_sm8150-common" revision="sixteen" remote="github-remote-sm-play"/>	
+	<project path="vendor/xiaomi/sm8150-common" name="sm8150-playground/vendor_xiaomi_sm8150-common" revision="sixteen" remote="github-remote-sm-play"/>	
 
  	 <!-- Hardware -->
  	<project path="hardware/xiaomi" name="android_hardware_xiaomi" revision="lineage-22.2" remote="github-remote-web" /> 
