@@ -43,6 +43,7 @@ m bacon
 
 # Clean up
 rm -rf prebuilts/clang/host/linux-x86
+rm -rf vendor/yaap
 
 # Display any error logs
 echo "Here is your error"
