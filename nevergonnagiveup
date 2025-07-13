@@ -15,6 +15,7 @@ git clone https://github.com/grepfox/local_manifest -b yaap .repo/local_manifest
 
 # Remove old prebuilts and hardware directories
 rm -rf prebuilts/clang/host/linux-x86
+
 # Remove hardware repos
 rm -rf hardware
 
