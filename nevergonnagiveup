@@ -3,6 +3,10 @@
 # Remove old local manifests
 rm -rf .repo/local_manifests
 
+# Nuke trees
+rm -rf vendor/xiaomi/vayu
+rm -rf device/xiaomi/vayu
+
 # Initialize repo with YAAP manifest
 repo init -u https://github.com/yaap/manifest -b sixteen --git-lfs --depth=1
 
