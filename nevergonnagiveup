@@ -45,7 +45,7 @@ source build/envsetup.sh
 lunch yaap_vayu-user
 
 # Start the build
-m bacon
+m yaap
 
 # Clean up
 rm -rf prebuilts/clang/host/linux-x86
