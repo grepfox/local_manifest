@@ -50,6 +50,7 @@ m bacon
 # Clean up
 rm -rf prebuilts/clang/host/linux-x86
 rm -rf vendor/yaap
+rm -rf vendor/yaap/signing/keys
 
 # Display any error logs
 echo "Here is your error"
