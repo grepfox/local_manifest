@@ -35,6 +35,7 @@ git clone https://github.com/yaap/hardware_xiaomi hardware/xiaomi -b sixteen
 git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 --depth=1 --single-branch -b android-16.0.0_r1 prebuilts/clang/host/linux-x86
 
 # Replace vendor/yaap
+rm -rf vendor/yaap/signing/keys
 rm -rf vendor/yaap
 git clone https://github.com/yaap/vendor_yaap -b sixteen-staging --depth=1 vendor/yaap
 git clone https://$GH_TOKEN@github.com/grepfox/yaap_sign vendor/yaap/signing/keys
