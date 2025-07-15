@@ -6,6 +6,7 @@ rm -rf .repo/local_manifests
 # Nuke trees
 rm -rf vendor/xiaomi/vayu
 rm -rf device/xiaomi/vayu
+rm -rf vendor/themes
 
 # Initialize repo with YAAP manifest
 repo init -u https://github.com/yaap/manifest -b sixteen --git-lfs --depth=1
@@ -26,8 +27,6 @@ rm -rf hardware
 rm -rf prebuilts/clang/host/linux-x86
 rm -rf hardware/xiaomi
 git clone https://github.com/yaap/hardware_xiaomi hardware/xiaomi -b sixteen
-rm -rf vendor/themes
-git clone https://github.com/grepfox/vendor_themes vendor/themes
 
 # Clone clang prebuilts
 git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 --depth=1 --single-branch -b android-16.0.0_r1 prebuilts/clang/host/linux-x86
