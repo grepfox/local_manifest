@@ -22,10 +22,6 @@ rm -rf hardware
 # Run resync script
 /opt/crave/resync.sh
 
-# Replace lineage compat
-rm -rf hardware/lineage/compat
-git clone https://github.com/grepfox/hardware_lineage_compat hardware/lineage/compat
-
 # Clean and replace more directories
 rm -rf prebuilts/clang/host/linux-x86
 rm -rf hardware/xiaomi
