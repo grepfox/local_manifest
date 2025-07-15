@@ -40,8 +40,8 @@ git clone https://$GH_TOKEN@github.com/grepfox/yaap_sign vendor/yaap/signing/key
 
 # Source environment and lunch target
 source build/envsetup.sh
-lunch yaap_vayu-user
 export TARGET_BUILD_GAPPS=true
+lunch yaap_vayu-user
 
 # Start the build
 m installclean
