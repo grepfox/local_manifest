@@ -41,7 +41,7 @@ git clone https://github.com/yaap/frameworks_base -b sixteen-staging --depth=1 f
 
 # Source environment and lunch target
 source build/envsetup.sh
-export TARGET_BUILD_GAPPS=true
+#export TARGET_BUILD_GAPPS=true
 lunch yaap_vayu-user
 
 # Start the build
