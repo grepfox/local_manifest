@@ -29,7 +29,7 @@ git clone https://github.com/LineageOS/hardware_xiaomi hardware/xiaomi -b lineag
 
 # Source environment and lunch target
 source build/envsetup.sh
-axion panther va
+axion vayu va
 axionSync
 
 # Start the build
