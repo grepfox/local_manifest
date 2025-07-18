@@ -32,7 +32,7 @@ git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x
 
 # Source environment and lunch target
 source build/envsetup.sh
-axion panther va
+axion vayu va
 
 # Start the build
 m installclean
