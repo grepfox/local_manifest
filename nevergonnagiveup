@@ -8,10 +8,10 @@ rm -rf vendor/xiaomi/vayu
 rm -rf device/xiaomi/vayu
 
 # Initialize repo with YAAP manifest
-repo init -u https://github.com/yaap/manifest -b sixteen --git-lfs --depth=1
+repo init -u https://github.com/AxionAOSP/android.git -b lineage-22.2 --git-lfs --depth=1
 
 # Clone local manifests
-git clone https://github.com/grepfox/local_manifest -b yaap .repo/local_manifests
+git clone https://github.com/grepfox/local_manifest -b main .repo/local_manifests
 
 # Remove old prebuilts and hardware directories
 rm -rf prebuilts/clang/host/linux-x86
