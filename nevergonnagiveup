@@ -1,12 +1,46 @@
-mkdir -p trusty/vendor/google/aosp/scripts/dummy
+#!/bin/bash
 
-cat > trusty/vendor/google/aosp/scripts/Android.bp << 'EOF'
-bootstrap_go_package {
-    name: "trusty_dirgroup_prebuilts_clang_host_linux-x86",
-    pkgPath: "trusty/vendor/google/aosp/scripts/dummy",
-    deps: [],
-    srcs: ["dummy.go"],
-}
-EOF
+# Remove old local manifests
+rm -rf .repo/local_manifests
 
-echo "package dummy" > trusty/vendor/google/aosp/scripts/dummy/dummy.go
+# Nuke trees
+rm -rf vendor/xiaomi/vayu
+rm -rf device/xiaomi/vayu
+
+# Initialize repo with YAAP manifest
+repo init -u https://github.com/yaap/manifest -b sixteen --git-lfs --depth=1
+
+# Clone local manifests
+git clone https://github.com/grepfox/local_manifest -b yaap .repo/local_manifests
+
+# Remove old prebuilts and hardware directories
+rm -rf prebuilts/clang/host/linux-x86
+
+# Remove hardware repos
+rm -rf hardware
+
+# Run resync script
+/opt/crave/resync.sh
+
+# Clean and replace more directories
+rm -rf prebuilts/clang/host/linux-x86
+rm -rf hardware/lineage/compat
+git clone https://github.com/yaap/hardware_lineage_compat -b sixteen hardware/lineage/compat
+
+# Clone clang prebuilts
+git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 --depth=1 --single-branch -b android-16.0.0_r1 prebuilts/clang/host/linux-x86
+
+# Source environment and lunch target
+source build/envsetup.sh
+axion panther va
+
+# Start the build
+m installclean
+ax -br
+
+# Clean up
+rm -rf prebuilts/clang/host/linux-x86
+
+# Display any error logs
+echo "Here is your error"
+cat out/error.log
