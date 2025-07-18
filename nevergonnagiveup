@@ -35,7 +35,6 @@ source build/envsetup.sh
 axion vayu va
 
 # Start the build
-m installclean
 ax -br
 #axion panther gms pico
 #ax -br
