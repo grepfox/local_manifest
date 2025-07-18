@@ -37,8 +37,8 @@ axion vayu va
 # Start the build
 m installclean
 ax -br
-axion panther gms pico
-ax -br
+#axion panther gms pico
+#ax -br
 
 # Clean up
 rm -rf prebuilts/clang/host/linux-x86
