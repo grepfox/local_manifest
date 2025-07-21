@@ -27,6 +27,7 @@ rm -rf hardware
 rm -rf prebuilts/clang/host/linux-x86
 rm -rf hardware/xiaomi
 git clone https://github.com/yaap/hardware_xiaomi hardware/xiaomi -b sixteen
+git clone https://github.com/cyberknight777/android_packages_apps_DisplayFeatures packages/apps/DisplayFeatures -b cabc
 
 # Clone clang prebuilts
 git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 --depth=1 --single-branch -b android-16.0.0_r1 prebuilts/clang/host/linux-x86
@@ -38,7 +39,6 @@ rm -rf vendor/yaap/signing/keys
 git clone https://$GH_TOKEN@github.com/grepfox/yaap_sign vendor/yaap/signing/keys
 #rm -rf frameworks/base
 #git clone https://github.com/yaap/frameworks_base -b sixteen-staging --depth=1 frameworks/base
-git clone https://github.com/cyberknight777/android_packages_apps_DisplayFeatures packages/apps/DisplayFeatures -b cabc
 
 # Source environment and lunch target
 source build/envsetup.sh
