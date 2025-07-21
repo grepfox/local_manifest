@@ -38,7 +38,7 @@ rm -rf vendor/yaap/signing/keys
 git clone https://$GH_TOKEN@github.com/grepfox/yaap_sign vendor/yaap/signing/keys
 #rm -rf frameworks/base
 #git clone https://github.com/yaap/frameworks_base -b sixteen-staging --depth=1 frameworks/base
-git clone https://github.com/grepfox/android_packages_apps_DisplayFeatures packages/apps/DisplayFeatures -b cabc
+git clone https://github.com/cyberknight777/android_packages_apps_DisplayFeatures packages/apps/DisplayFeatures -b cabc
 
 # Source environment and lunch target
 source build/envsetup.sh
