@@ -46,7 +46,7 @@ export TARGET_BUILD_GAPPS=true
 lunch yaap_vayu-user
 
 # Start the build
-m installclean
+#m installclean
 m yaap
 
 # Clean up
