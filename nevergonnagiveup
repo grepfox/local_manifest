@@ -39,7 +39,7 @@ git clone https://github.com/yaap/vendor_yaap -b sixteen-staging --depth=1 vendo
 rm -rf vendor/yaap/signing/keys
 git clone https://$GH_TOKEN@github.com/grepfox/yaap_sign vendor/yaap/signing/keys
 rm -rf frameworks/base
-git clone https://github.com/yaap/frameworks_base -b sixteen-staging --depth=1 frameworks/base
+git clone https://github.com/sm8150-playground/frameworks_base -b sixteen-staging --depth=1 frameworks/base
 
 # Source environment and lunch target
 source build/envsetup.sh
