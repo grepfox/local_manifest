@@ -43,6 +43,7 @@ git clone https://github.com/sm8150-playground/frameworks_base -b sixteen-stagin
 
 # Source environment and lunch target
 source build/envsetup.sh
+export YAAP_BUILDTYPE=Banshee
 export TARGET_BUILD_GAPPS=true
 lunch yaap_vayu-user
 
