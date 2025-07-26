@@ -1,63 +1,91 @@
 #!/bin/bash
 
-# Remove old local manifests
+set -e  # Exit immediately on error
+
+echo "========================================"
+echo "      STARTING YAAP BUILD SCRIPT        "
+echo "========================================"
+
+echo "========== REMOVING OLD LOCAL MANIFESTS =========="
 rm -rf .repo/local_manifests
 
-# Nuke trees
+echo "========== NUKING OLD DEVICE/VENDOR TREES =========="
 rm -rf vendor/xiaomi/vayu
 rm -rf device/xiaomi/vayu
 rm -rf vendor/yaap
 
-# Initialize repo with YAAP manifest
+echo "========== INITIALIZING REPO WITH YAAP MANIFEST =========="
 repo init -u https://github.com/yaap/manifest -b sixteen --git-lfs --depth=1
 
-# Clone local manifests
+echo "========== CLONING LOCAL MANIFESTS =========="
 git clone https://github.com/grepfox/local_manifest -b yaap .repo/local_manifests
 
-# Remove old prebuilts and hardware directories
+echo "========== REMOVING OLD PREBUILTS AND HARDWARE REPOS =========="
 rm -rf prebuilts/clang/host/linux-x86
-
-# Remove hardware repos
 rm -rf hardware
 
-# Run resync script
+echo "========== RUNNING RESYNC SCRIPT =========="
 /opt/crave/resync.sh
 
-# Clean and replace more directories
+echo "========== CLEANING AND REPLACING DIRECTORIES =========="
 rm -rf prebuilts/clang/host/linux-x86
 rm -rf hardware/xiaomi
+
+echo "========== CLONING XIAOMI HARDWARE =========="
 git clone https://github.com/yaap/hardware_xiaomi hardware/xiaomi -b sixteen
-#rm -rf packages/apps/DisplayFeatures
-#git clone https://github.com/cyberknight777/android_packages_apps_DisplayFeatures packages/apps/DisplayFeatures -b master
 
-# Clone clang prebuilts
-git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 --depth=1 --single-branch -b android-16.0.0_r1 prebuilts/clang/host/linux-x86
+# DisplayFeatures
+# echo "========== CLONING DISPLAYFEATURES APP =========="
+# rm -rf packages/apps/DisplayFeatures
+# git clone https://github.com/cyberknight777/android_packages_apps_DisplayFeatures packages/apps/DisplayFeatures -b master
 
-# Replace repos
+#echo "========== CLONING CLANG PREBUILTS =========="
+#git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 --depth=1 --single-branch -b android-16.0.0_r1 prebuilts/clang/host/linux-x86
+
+echo "========== REPLACING YAAP VENDOR REPO =========="
 rm -rf vendor/yaap
 git clone https://github.com/yaap/vendor_yaap -b sixteen-staging --depth=1 vendor/yaap
+
+echo "========== CLONING SIGNING KEYS =========="
 rm -rf vendor/yaap/signing/keys
 git clone https://$GH_TOKEN@github.com/grepfox/yaap_sign vendor/yaap/signing/keys
+
+echo "========== REPLACING FWB AND SETTINGS =========="
 rm -rf frameworks/base
 git clone https://github.com/sm8150-playground/frameworks_base -b sixteen-staging --depth=1 frameworks/base
+rm -rf packages/apps/Settings
+git clone https://github.com/sm8150-playground/packages_apps_Settings -b sixteen --depth=1 packages/apps/Settings
 
-# Source environment and lunch target
+echo "========== SOURCING BUILD ENVIRONMENT =========="
 source build/envsetup.sh
-#export YAAP_BUILDTYPE=Banshee
+
+# Optional YAAP build type
+# export YAAP_BUILDTYPE=Banshee
+
+echo "========== SETTING BUILD TARGET AND OPTIONS =========="
 export TARGET_BUILD_GAPPS=true
 lunch yaap_vayu-user
 
-# Start the build
+echo "========== CLEANING PREVIOUS BUILD ARTIFACTS =========="
 m installclean
+
+echo "========== STARTING YAAP BUILD =========="
 m yaap
 
-# Clean up
+echo "========== CLEANING UP REPOS AFTER BUILD =========="
 rm -rf prebuilts/clang/host/linux-x86
 rm -rf vendor/yaap
 rm -rf vendor/yaap/signing/keys
 rm -rf vendor/themes
 rm -rf frameworks/base
 
-# Display any error logs
-echo "Here is your error"
-cat out/error.log
+echo "========== BUILD COMPLETE - CHECKING FOR ERRORS =========="
+if [ -f out/error.log ]; then
+    cat out/error.log
+else
+    echo "NO ERROR LOG FOUND - BUILD COMPLETED SUCCESSFULLY"
+fi
+
+echo "========================================"
+echo "        YAAP BUILD SCRIPT DONE          "
+echo "========================================"
