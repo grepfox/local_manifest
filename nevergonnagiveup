@@ -7,10 +7,11 @@ echo "========================================"
 echo "========== REMOVING OLD LOCAL MANIFESTS =========="
 rm -rf .repo/local_manifests
 
-echo "========== NUKING OLD DEVICE/VENDOR TREES =========="
+echo "========== NUKING OLD STUFF =========="
 rm -rf vendor/xiaomi/vayu
 rm -rf device/xiaomi/vayu
 rm -rf vendor/yaap
+rm -rf prebuilts/clang/host/linux-x86
 
 echo "========== INITIALIZING REPO WITH YAAP MANIFEST =========="
 repo init -u https://github.com/yaap/manifest -b sixteen --git-lfs --depth=1
@@ -26,7 +27,6 @@ echo "========== RUNNING RESYNC SCRIPT =========="
 /opt/crave/resync.sh
 
 echo "========== CLEANING AND REPLACING DIRECTORIES =========="
-rm -rf prebuilts/clang/host/linux-x86
 rm -rf hardware/xiaomi
 
 echo "========== CLONING XIAOMI HARDWARE =========="
