@@ -42,7 +42,7 @@ git clone https://github.com/yaap/hardware_xiaomi hardware/xiaomi -b sixteen
 
 echo "========== REPLACING YAAP VENDOR REPO =========="
 rm -rf vendor/yaap
-git clone https://github.com/yaap/vendor_yaap -b sixteen-staging --depth=1 vendor/yaap
+git clone https://github.com/yaap/vendor_yaap -b sixteen-staging --depth=1 --single-branch vendor/yaap
 
 echo "========== CLONING SIGNING KEYS =========="
 rm -rf vendor/yaap/signing/keys
@@ -50,9 +50,9 @@ git clone https://$GH_TOKEN@github.com/grepfox/yaap_sign vendor/yaap/signing/key
 
 echo "========== REPLACING FWB AND SETTINGS =========="
 rm -rf frameworks/base
-git clone https://github.com/sm8150-playground/frameworks_base -b sixteen-staging --depth=1 frameworks/base
+git clone https://github.com/sm8150-playground/frameworks_base -b sixteen-staging --single-branch --depth=1 frameworks/base
 rm -rf packages/apps/Settings
-git clone https://github.com/sm8150-playground/packages_apps_Settings -b sixteen --depth=1 packages/apps/Settings
+git clone https://github.com/sm8150-playground/packages_apps_Settings -b sixteen --depth=1 --single-branch packages/apps/Settings
 
 echo "========== SOURCING BUILD ENVIRONMENT =========="
 source build/envsetup.sh
