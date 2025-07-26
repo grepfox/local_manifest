@@ -23,8 +23,14 @@ echo "========== REMOVING OLD PREBUILTS AND HARDWARE REPOS =========="
 rm -rf prebuilts/clang/host/linux-x86
 rm -rf hardware
 
-echo "========== RUNNING RESYNC SCRIPT =========="
-/opt/crave/resync.sh
+echo "========== RUNNING SYNC SCRIPT =========="
+
+if [ -f /opt/crave/resync.sh ]; then
+    /opt/crave/resync.sh
+else
+    repo sync -j8 --force-sync
+fi
+
 
 echo "========== CLEANING AND REPLACING DIRECTORIES =========="
 rm -rf hardware/xiaomi
@@ -51,8 +57,10 @@ git clone https://$GH_TOKEN@github.com/grepfox/yaap_sign vendor/yaap/signing/key
 echo "========== REPLACING FWB AND SETTINGS =========="
 rm -rf frameworks/base
 git clone https://github.com/sm8150-playground/frameworks_base -b sixteen-staging --single-branch --depth=1 frameworks/base
+rm -rf frameworks/base/.git
 rm -rf packages/apps/Settings
 git clone https://github.com/sm8150-playground/packages_apps_Settings -b sixteen --depth=1 --single-branch packages/apps/Settings
+rm -rf packages/apps/Settings/.git
 
 echo "========== SOURCING BUILD ENVIRONMENT =========="
 source build/envsetup.sh
