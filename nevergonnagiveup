@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -e  # Exit immediately on error
-
 echo "========================================"
 echo "      STARTING YAAP BUILD SCRIPT        "
 echo "========================================"
