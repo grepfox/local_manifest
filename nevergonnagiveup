@@ -84,6 +84,9 @@ else
     echo "NO ERROR LOG FOUND - BUILD COMPLETED SUCCESSFULLY"
 fi
 
+echo "========== Sharing output dir ls =========="
+ls out/target/product/vayu
+
 echo "========================================"
-echo "        YAAP BUILD SCRIPT DONE          "
+echo "        YAAP BUILD DONE          "
 echo "========================================"
