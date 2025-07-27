@@ -55,18 +55,16 @@ rm -rf vendor/yaap/signing/keys
 git clone https://$GH_TOKEN@github.com/grepfox/yaap_sign vendor/yaap/signing/keys
 
 echo "========== REPLACING FWB AND SETTINGS =========="
-rm -rf frameworks/base
-git clone https://github.com/sm8150-playground/frameworks_base -b sixteen-staging --single-branch --depth=1 frameworks/base
-rm -rf frameworks/base/.git
 rm -rf packages/apps/Settings
 git clone https://github.com/sm8150-playground/packages_apps_Settings -b sixteen --depth=1 --single-branch packages/apps/Settings
 rm -rf packages/apps/Settings/.git
+git clone https://github.com/yaap/packages_apps_YASP packages/apps/Settings/YASP
 
 echo "========== SOURCING BUILD ENVIRONMENT =========="
 source build/envsetup.sh
 
 # Optional YAAP build type
-# export YAAP_BUILDTYPE=Banshee
+export YAAP_BUILDTYPE=Banshee
 
 echo "========== SETTING BUILD TARGET AND OPTIONS =========="
 export TARGET_BUILD_GAPPS=true
