@@ -14,7 +14,7 @@ echo "========== CLONING LOCAL MANIFESTS =========="
 git clone https://github.com/grepfox/local_manifest -b yaap .repo/local_manifests
 
 echo "========== REMOVING OLD PREBUILTS AND HARDWARE REPOS =========="
-rm -rf prebuilts/clang/host/linux-x86
+#rm -rf prebuilts/clang/host/linux-x86
 
 echo "========== RUNNING SYNC SCRIPT =========="
 
@@ -23,7 +23,6 @@ if [ -f /opt/crave/resync.sh ]; then
 else
     repo sync --force-sync -j8
 fi
-
 
 echo "========== CLEANING AND REPLACING DIRECTORIES =========="
 rm -rf hardware/xiaomi
