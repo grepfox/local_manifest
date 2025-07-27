@@ -7,28 +7,21 @@ echo "========================================"
 echo "========== REMOVING OLD LOCAL MANIFESTS =========="
 rm -rf .repo/local_manifests
 
-echo "========== NUKING OLD STUFF =========="
-rm -rf vendor/xiaomi/vayu
-rm -rf device/xiaomi/vayu
-rm -rf vendor/yaap
-rm -rf prebuilts/clang/host/linux-x86
-
 echo "========== INITIALIZING REPO WITH YAAP MANIFEST =========="
-repo init -u https://github.com/yaap/manifest -b sixteen --git-lfs --depth=1
+repo init --depth=1 --no-repo-verify -u https://github.com/yaap/manifest.git -b sixteen --git-lfs -g default,-mips,-darwin,-notdefault
 
 echo "========== CLONING LOCAL MANIFESTS =========="
 git clone https://github.com/grepfox/local_manifest -b yaap .repo/local_manifests
 
 echo "========== REMOVING OLD PREBUILTS AND HARDWARE REPOS =========="
 rm -rf prebuilts/clang/host/linux-x86
-rm -rf hardware
 
 echo "========== RUNNING SYNC SCRIPT =========="
 
 if [ -f /opt/crave/resync.sh ]; then
     /opt/crave/resync.sh
 else
-    repo sync -j8 --force-sync
+    repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
 fi
 
 
@@ -36,7 +29,7 @@ echo "========== CLEANING AND REPLACING DIRECTORIES =========="
 rm -rf hardware/xiaomi
 
 echo "========== CLONING XIAOMI HARDWARE =========="
-git clone https://github.com/yaap/hardware_xiaomi hardware/xiaomi -b sixteen
+git clone https://github.com/grepfox/hardware_xiaomi hardware/xiaomi -b sixteen
 
 # DisplayFeatures
 # echo "========== CLONING DISPLAYFEATURES APP =========="
@@ -57,16 +50,14 @@ git clone https://$GH_TOKEN@github.com/grepfox/yaap_sign vendor/yaap/signing/key
 echo "========== REPLACING FWB AND SETTINGS =========="
 rm -rf frameworks/base
 git clone https://github.com/sm8150-playground/frameworks_base -b sixteen-staging --single-branch --depth=1 frameworks/base
-rm -rf frameworks/base/.git
 rm -rf packages/apps/Settings
 git clone https://github.com/sm8150-playground/packages_apps_Settings -b sixteen --depth=1 --single-branch packages/apps/Settings
-rm -rf packages/apps/Settings/.git
 
 echo "========== SOURCING BUILD ENVIRONMENT =========="
 source build/envsetup.sh
 
 # Optional YAAP build type
-# export YAAP_BUILDTYPE=Banshee
+export YAAP_BUILDTYPE=Banshee
 
 echo "========== SETTING BUILD TARGET AND OPTIONS =========="
 export TARGET_BUILD_GAPPS=true
