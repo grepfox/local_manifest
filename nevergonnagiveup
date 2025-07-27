@@ -63,7 +63,7 @@ export TARGET_BUILD_GAPPS=true
 lunch yaap_vayu-user
 
 echo "========== CLEANING PREVIOUS BUILD ARTIFACTS =========="
-m installclean
+#m installclean
 
 echo "========== STARTING YAAP BUILD =========="
 m yaap
