@@ -8,7 +8,7 @@ echo "========== REMOVING OLD LOCAL MANIFESTS =========="
 rm -rf .repo/local_manifests
 
 echo "========== INITIALIZING REPO WITH YAAP MANIFEST =========="
-repo init --depth=1 --no-repo-verify -u https://github.com/yaap/manifest.git -b sixteen --git-lfs -g default,-mips,-darwin,-notdefault
+repo init --depth=1 https://github.com/yaap/manifest.git -b sixteen --git-lfs
 
 echo "========== CLONING LOCAL MANIFESTS =========="
 git clone https://github.com/grepfox/local_manifest -b yaap .repo/local_manifests
@@ -21,7 +21,7 @@ echo "========== RUNNING SYNC SCRIPT =========="
 if [ -f /opt/crave/resync.sh ]; then
     /opt/crave/resync.sh
 else
-    repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
+    repo sync --force-sync -j8
 fi
 
 
