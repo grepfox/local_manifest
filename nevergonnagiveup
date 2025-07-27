@@ -10,11 +10,12 @@ rm -rf .repo/local_manifests
 echo "========== NUKING OLD STUFF =========="
 rm -rf vendor/xiaomi/vayu
 rm -rf device/xiaomi/vayu
-rm -rf vendor/yaap
-rm -rf prebuilts/clang/host/linux-x86
 
 echo "========== INITIALIZING REPO WITH YAAP MANIFEST =========="
 repo init -u https://github.com/yaap/manifest -b sixteen --git-lfs --depth=1
+
+rm -rf vendor/yaap
+rm -rf prebuilts/clang/host/linux-x86
 
 echo "========== CLONING LOCAL MANIFESTS =========="
 git clone https://github.com/grepfox/local_manifest -b yaap .repo/local_manifests
