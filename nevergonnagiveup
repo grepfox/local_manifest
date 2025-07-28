@@ -57,7 +57,7 @@ echo "========== REPLACING FWB AND SETTINGS =========="
 rm -rf packages/apps/Settings
 git clone https://github.com/sm8150-playground/packages_apps_Settings -b sixteen --depth=1 --single-branch packages/apps/Settings
 rm -rf packages/apps/Settings/.git
-git clone https://github.com/yaap/packages_apps_YASP packages/apps/Settings/YASP
+git clone https://github.com/yaap/packages_apps_YASP packages/apps/Settings/YASP --depth=1
 
 echo "========== SOURCING BUILD ENVIRONMENT =========="
 source build/envsetup.sh
