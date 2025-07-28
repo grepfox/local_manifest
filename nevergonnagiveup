@@ -29,7 +29,7 @@ git clone https://github.com/yaap/hardware_lineage_compat -b sixteen hardware/li
 
 # Source environment and lunch target
 source build/envsetup.sh
-axion panther gms pico
+axion vayu gms pico
 
 # Start the build
 ax -br
