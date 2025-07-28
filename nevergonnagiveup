@@ -27,9 +27,6 @@ rm -rf prebuilts/clang/host/linux-x86
 rm -rf hardware/lineage/compat
 git clone https://github.com/yaap/hardware_lineage_compat -b sixteen hardware/lineage/compat
 
-# Clone clang prebuilts
-git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 --depth=1 --single-branch -b android-16.0.0_r1 prebuilts/clang/host/linux-x86
-
 # Source environment and lunch target
 source build/envsetup.sh
 axion vayu va
