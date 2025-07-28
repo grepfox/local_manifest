@@ -75,9 +75,9 @@ m installclean
 echo "========== STARTING YAAP BUILD =========="
 m yaap
 
-export YAAP_BUILDTYPE=Vanilla
-export TARGET_BUILD_GAPPS=false
-m yaap
+#export YAAP_BUILDTYPE=Vanilla
+#export TARGET_BUILD_GAPPS=false
+#m yaap
 
 echo "========== CLEANING UP REPOS AFTER BUILD =========="
 rm -rf prebuilts/clang/host/linux-x86
