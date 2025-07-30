@@ -8,7 +8,7 @@ rm -rf vendor/xiaomi/vayu
 rm -rf device/xiaomi/vayu
 
 # Initialize repo with Axionmanifest
-repo init -u https://github.com/AxionAOSP/android.git -b lineage-23.0 --git-lfs --depth=1
+repo init -u https://github.com/AxionAOSP/android.git -b lineage-22.2 --git-lfs --depth=1
 
 # Clone local manifests
 git clone https://github.com/grepfox/local_manifest -b main .repo/local_manifests
