@@ -39,8 +39,8 @@ fi
 #git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 --depth=1 --single-branch -b android-16.0.0_r1 prebuilts/clang/host/linux-x86
 
 echo "========== REPLACING YAAP VENDOR REPO =========="
-rm -rf vendor/yaap
-git clone https://github.com/yaap/vendor_yaap -b sixteen-staging --depth=1 --single-branch vendor/yaap
+#rm -rf vendor/yaap
+#git clone https://github.com/yaap/vendor_yaap -b sixteen-staging --depth=1 --single-branch vendor/yaap
 
 echo "========== CLONING SIGNING KEYS =========="
 rm -rf vendor/yaap/signing/keys
