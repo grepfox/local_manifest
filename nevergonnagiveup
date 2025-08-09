@@ -30,13 +30,6 @@ else
     repo sync -j8 --force-sync
 fi
 
-
-echo "========== CLEANING AND REPLACING DIRECTORIES =========="
-rm -rf hardware/xiaomi
-
-echo "========== CLONING XIAOMI HARDWARE =========="
-git clone https://github.com/yaap/hardware_xiaomi hardware/xiaomi -b sixteen
-
 # DisplayFeatures
 # echo "========== CLONING DISPLAYFEATURES APP =========="
 # rm -rf packages/apps/DisplayFeatures
@@ -52,12 +45,6 @@ git clone https://github.com/yaap/vendor_yaap -b sixteen-staging --depth=1 --sin
 echo "========== CLONING SIGNING KEYS =========="
 rm -rf vendor/yaap/signing/keys
 git clone https://$GH_TOKEN@github.com/grepfox/yaap_sign vendor/yaap/signing/keys
-
-echo "========== REPLACING FWB AND SETTINGS =========="
-rm -rf packages/apps/Settings
-git clone https://github.com/sm8150-playground/packages_apps_Settings -b sixteen --depth=1 --single-branch packages/apps/Settings
-rm -rf packages/apps/Settings/.git
-git clone https://github.com/yaap/packages_apps_YASP packages/apps/Settings/YASP --depth=1
 
 echo "========== SOURCING BUILD ENVIRONMENT =========="
 source build/envsetup.sh
