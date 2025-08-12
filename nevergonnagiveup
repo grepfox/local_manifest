@@ -70,8 +70,8 @@ m yaap
 
 echo "========== CLEANING UP REPOS AFTER BUILD =========="
 rm -rf prebuilts/clang/host/linux-x86
-rm -rf vendor/yaap
 rm -rf vendor/yaap/signing/keys
+rm -rf vendor/yaap
 
 echo "========== BUILD COMPLETE - CHECKING FOR ERRORS =========="
 if [ -f out/error.log ]; then
