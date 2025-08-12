@@ -83,6 +83,9 @@ fi
 echo "========== Sharing output dir ls =========="
 ls out/target/product/vayu
 
+echo "========== YAAP Build info =========="
+cat out/target/product/vayu/vayu.json
+
 echo "========================================"
 echo "        YAAP BUILD DONE          "
 echo "========================================"
