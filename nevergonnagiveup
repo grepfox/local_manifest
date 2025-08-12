@@ -41,6 +41,8 @@ fi
 echo "========== REPLACING YAAP VENDOR REPO =========="
 #rm -rf vendor/yaap
 #git clone https://github.com/yaap/vendor_yaap -b sixteen-staging --depth=1 --single-branch vendor/yaap
+rm -rf kernel/xiaomi/vayu
+git clone https://github.com/AnymoreProject/android_kernel_vayu/ kernel/xiaomi/vayu --depth=1
 
 echo "========== CLONING SIGNING KEYS =========="
 rm -rf vendor/yaap/signing/keys
