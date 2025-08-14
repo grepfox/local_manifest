@@ -51,10 +51,12 @@ echo "========== SOURCING BUILD ENVIRONMENT =========="
 source build/envsetup.sh
 
 # Optional YAAP build type
-export YAAP_BUILDTYPE=Banshee
+#export YAAP_BUILDTYPE=Banshee
 
 echo "========== SETTING BUILD TARGET AND OPTIONS =========="
-export TARGET_BUILD_GAPPS=true
+#export TARGET_BUILD_GAPPS=true
+export YAAP_BUILDTYPE=Vanilla
+export TARGET_BUILD_GAPPS=false
 lunch yaap_vayu-user
 
 echo "========== CLEANING PREVIOUS BUILD ARTIFACTS =========="
