@@ -10,6 +10,7 @@ rm -rf .repo/local_manifests
 echo "========== NUKING OLD STUFF =========="
 rm -rf vendor/xiaomi/vayu
 rm -rf device/xiaomi/vayu
+rm -rf kernel/xiaomi/vayu
 
 echo "========== INITIALIZING REPO WITH YAAP MANIFEST =========="
 repo init -u https://github.com/yaap/manifest -b sixteen --git-lfs --depth=1
@@ -41,8 +42,6 @@ git clone https://github.com/yaap/android_packages_apps_DisplayFeatures packages
 echo "========== REPLACING YAAP VENDOR REPO =========="
 #rm -rf vendor/yaap
 #git clone https://github.com/yaap/vendor_yaap -b sixteen-staging --depth=1 --single-branch vendor/yaap
-rm -rf kernel/xiaomi/vayu
-git clone https://github.com/AnymoreProject/android_kernel_vayu/ kernel/xiaomi/vayu --depth=1
 
 echo "========== CLONING SIGNING KEYS =========="
 rm -rf vendor/yaap/signing/keys
