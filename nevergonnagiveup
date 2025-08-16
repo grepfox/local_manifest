@@ -52,6 +52,7 @@ source build/envsetup.sh
 
 # Optional YAAP build type
 export YAAP_BUILDTYPE=Banshee
+export TZ=Asia/Kolkata
 
 echo "========== SETTING BUILD TARGET AND OPTIONS =========="
 export TARGET_BUILD_GAPPS=true
@@ -64,7 +65,6 @@ m installclean
 
 echo "========== STARTING YAAP BUILD =========="
 m yaap
-export TZ=Asia/Kolkata
 #export YAAP_BUILDTYPE=Vanilla
 #export TARGET_BUILD_GAPPS=false
 #m yaap
