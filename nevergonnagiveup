@@ -49,15 +49,13 @@ git clone https://$GH_TOKEN@github.com/grepfox/yaap_sign vendor/yaap/signing/key
 
 echo "========== SOURCING BUILD ENVIRONMENT =========="
 source build/envsetup.sh
-
-# Optional YAAP build type
-#export YAAP_BUILDTYPE=Banshee
 export TZ=Asia/Kolkata
 
 echo "========== SETTING BUILD TARGET AND OPTIONS =========="
-#export TARGET_BUILD_GAPPS=true
-export YAAP_BUILDTYPE=Vanilla
-export TARGET_BUILD_GAPPS=false
+export YAAP_BUILDTYPE=Banshee
+export TARGET_BUILD_GAPPS=true
+#export YAAP_BUILDTYPE=Vanilla
+#export TARGET_BUILD_GAPPS=false
 lunch yaap_vayu-user
 
 echo "========== CLEANING PREVIOUS BUILD ARTIFACTS =========="
