@@ -52,10 +52,10 @@ source build/envsetup.sh
 export TZ=Asia/Kolkata
 
 echo "========== SETTING BUILD TARGET AND OPTIONS =========="
-export YAAP_BUILDTYPE=Banshee
-export TARGET_BUILD_GAPPS=true
-#export YAAP_BUILDTYPE=Vanilla
-#export TARGET_BUILD_GAPPS=false
+#export YAAP_BUILDTYPE=Banshee
+#export TARGET_BUILD_GAPPS=true
+export YAAP_BUILDTYPE=Vanilla
+export TARGET_BUILD_GAPPS=false
 lunch yaap_vayu-user
 
 echo "========== CLEANING PREVIOUS BUILD ARTIFACTS =========="
