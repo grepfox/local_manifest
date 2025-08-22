@@ -34,7 +34,7 @@ fi
 # DisplayFeatures
 # echo "========== CLONING DISPLAYFEATURES APP =========="
 rm -rf packages/apps/DisplayFeatures
-git clone https://github.com/yaap/android_packages_apps_DisplayFeatures packages/apps/DisplayFeatures
+git clone https://github.com/yaap/packages_apps_DisplayFeatures packages/apps/DisplayFeatures
 
 #echo "========== CLONING CLANG PREBUILTS =========="
 #git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 --depth=1 --single-branch -b android-16.0.0_r1 prebuilts/clang/host/linux-x86
