@@ -6,6 +6,7 @@ echo "========================================"
 
 echo "========== REMOVING OLD LOCAL MANIFESTS =========="
 rm -rf .repo/local_manifests
+rm -rf release-files
 
 echo "========== NUKING OLD STUFF =========="
 rm -rf vendor/xiaomi/vayu
