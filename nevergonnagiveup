@@ -66,8 +66,10 @@ m yaap
 mkdir builds
 cp -r out/target/product/vayu/YAAP-Vanilla* builds
 cp -r out/target/product/vayu/vayu.json builds
+cat out/target/product/vayu/vayu.json
 export YAAP_BUILDTYPE=Banshee
 export TARGET_BUILD_GAPPS=true
+lunch yaap_vayu-user
 m yaap
 
 echo "========== CLEANING UP REPOS AFTER BUILD =========="
