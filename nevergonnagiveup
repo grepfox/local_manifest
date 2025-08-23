@@ -64,7 +64,7 @@ m installclean
 echo "========== STARTING YAAP BUILD =========="
 m yaap
 mkdir release-files
-cp -r out/target/product/vayu/YAAP-Vanilla* release-files/
+cp -r out/target/product/vayu/YAAP-16* release-files/
 cp -r out/target/product/vayu/vayu.json release-files/
 cat out/target/product/vayu/vayu.json
 export YAAP_BUILDTYPE=Banshee
