@@ -9,20 +9,13 @@ rm -rf .repo/local_manifests
 rm -rf release-files
 
 echo "========== NUKING OLD STUFF =========="
-rm -rf vendor/xiaomi/vayu
-rm -rf device/xiaomi/vayu
-rm -rf kernel/xiaomi/vayu
 
 echo "========== INITIALIZING REPO WITH YAAP MANIFEST =========="
-repo init -u https://github.com/yaap/manifest -b sixteen --git-lfs --depth=1
+repo init -u https://github.com/LineageOS/android.git -b lineage-22.2 --git-lfs
 
-echo "========== CLONING LOCAL MANIFESTS =========="
-git clone https://github.com/grepfox/local_manifest -b yaap .repo/local_manifests
 
 echo "========== REMOVING OLD PREBUILTS AND HARDWARE REPOS =========="
 rm -rf prebuilts/clang/host/linux-x86
-rm -rf hardware/xiaomi
-rm -rf vendor/yaap
 
 echo "========== RUNNING SYNC SCRIPT =========="
 
@@ -32,53 +25,26 @@ else
     repo sync -j8 --force-sync
 fi
 
-# DisplayFeatures
-# echo "========== CLONING DISPLAYFEATURES APP =========="
-rm -rf packages/apps/DisplayFeatures
-git clone https://github.com/yaap/packages_apps_DisplayFeatures packages/apps/DisplayFeatures
-
-#echo "========== CLONING CLANG PREBUILTS =========="
-#git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 --depth=1 --single-branch -b android-16.0.0_r1 prebuilts/clang/host/linux-x86
-
-echo "========== REPLACING YAAP VENDOR REPO =========="
-#rm -rf vendor/yaap
-#git clone https://github.com/yaap/vendor_yaap -b sixteen-staging --depth=1 --single-branch vendor/yaap
-
-echo "========== CLONING SIGNING KEYS =========="
-rm -rf vendor/yaap/signing/keys
-git clone https://$GH_TOKEN@github.com/grepfox/yaap_sign vendor/yaap/signing/keys
-
 echo "========== SOURCING BUILD ENVIRONMENT =========="
 source build/envsetup.sh
 export TZ=Asia/Kolkata
 
+
 echo "========== SETTING BUILD TARGET AND OPTIONS =========="
-#export YAAP_BUILDTYPE=Banshee
-#export TARGET_BUILD_GAPPS=true
-export YAAP_BUILDTYPE=Vanilla
-export TARGET_BUILD_GAPPS=false
-lunch yaap_vayu-user
-
-echo "========== CLEANING PREVIOUS BUILD ARTIFACTS =========="
 m installclean
+brunch lexus eng
 
-echo "========== STARTING YAAP BUILD =========="
-m yaap
-mkdir release-files
-cp -r out/target/product/vayu/YAAP-16* release-files/
-cp -r out/target/product/vayu/vayu.json release-files/
-cat out/target/product/vayu/vayu.json
-export YAAP_BUILDTYPE=Banshee
-export TARGET_BUILD_GAPPS=true
-lunch yaap_vayu-user
-m yaap
-cp -r out/target/product/vayu/vayu.json release-files/vayu_banshee.json
-cp -r out/target/product/vayu/YAAP-16* release-files/
+mkdir lexus-files
+cp -r out/target/product/lexus/lineage-22.2* lexus-files
+cp -r out/target/product/lexus/recovery.img lexus-files/
+cp -r out/target/product/lexus/boot.img lexus-files/
+cp -r out/target/product/lexus/init_boot.img lexus-files/
+cp -r out/target/product/lexus/vendor_boot.img lexus-files/
+cp -r out/target/product/lexus/vendor_dlkm.img lexus-files/
+cp -r out/target/product/lexus/system_dlkm.img lexus-files/
 
 echo "========== CLEANING UP REPOS AFTER BUILD =========="
 rm -rf prebuilts/clang/host/linux-x86
-rm -rf vendor/yaap/signing/keys
-rm -rf vendor/yaap
 
 echo "========== BUILD COMPLETE - CHECKING FOR ERRORS =========="
 if [ -f out/error.log ]; then
