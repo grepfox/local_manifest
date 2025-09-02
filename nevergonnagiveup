@@ -35,7 +35,7 @@ echo -e "${YELLOW}SYNCING SOURCE CODE${NC}"
 if [ -f /opt/crave/resync.sh ]; then
     /opt/crave/resync.sh
 else
-    repo sync -j8 --force-sync
+repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
 fi
 
 echo -e "${YELLOW}CLONING DEVICE AND KERNEL REPOSITORIES${NC}"
