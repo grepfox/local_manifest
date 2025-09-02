@@ -39,13 +39,20 @@ else
 fi
 
 echo -e "${YELLOW}CLONING DEVICE AND KERNEL REPOSITORIES${NC}"
-git clone https://github.com/OnePlus-12-Development/android_kernel_oneplus_sm8650 kernel/oneplus/sm8650
-git clone https://github.com/derpbygrep/android_device_oneplus_sm8650-common device/oneplus/sm8650-common
-git clone https://github.com/derpbygrep/android_hardware_oplus hardware/oplus
-git clone https://github.com/derpbygrep/android_kernel_oneplus_sm8650-modules kernel/oneplus/sm8650-modules
-git clone https://github.com/derpbygrep/android_kernel_oneplus_sm8650-devicetrees kernel/oneplus/sm8650-devicetrees
-git clone https://github.com/derpbygrep/device_oneplus_lexus device/oneplus/lexus
-git clone https://gitea.com/grepfox/vendor_oneplus vendor/oneplus
+rm -rf kernel/oneplus/sm8650
+git clone --depth=1 https://github.com/OnePlus-12-Development/android_kernel_oneplus_sm8650 kernel/oneplus/sm8650
+rm -rf device/oneplus/sm8650-common
+git clone --depth=1 https://github.com/derpbygrep/android_device_oneplus_sm8650-common device/oneplus/sm8650-common
+rm -rf hardware/oplus
+git clone --depth=1 https://github.com/derpbygrep/android_hardware_oplus hardware/oplus
+rm -rf kernel/oneplus/sm8650-modules
+git clone --depth=1 https://github.com/derpbygrep/android_kernel_oneplus_sm8650-modules kernel/oneplus/sm8650-modules
+rm -rf kernel/oneplus/sm8650-devicetrees
+git clone --depth=1 https://github.com/derpbygrep/android_kernel_oneplus_sm8650-devicetrees kernel/oneplus/sm8650-devicetrees
+rm -rf device/oneplus/lexus
+git clone --depth=1 https://github.com/derpbygrep/device_oneplus_lexus device/oneplus/lexus
+rm -rf vendor/oneplus
+git clone --depth=1 https://gitea.com/grepfox/vendor_oneplus vendor/oneplus
 
 echo -e "${YELLOW}SOURCING BUILD ENVIRONMENT${NC}"
 source build/envsetup.sh
