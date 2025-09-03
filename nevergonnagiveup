@@ -21,7 +21,7 @@ banner "STARTING LINEAGE BUILD SCRIPT"
 
 echo -e "${YELLOW}REMOVING OLD LOCAL MANIFESTS${NC}"
 rm -rf .repo/local_manifests
-rm -rf release-files
+rm -rf lexus-files
 
 echo -e "${YELLOW}NUKING OLD STUFF${NC}"
 
@@ -67,7 +67,6 @@ echo -e "${YELLOW}SETTING BUILD TARGET AND OPTIONS${NC}"
 brunch lexus
 
 echo -e "${YELLOW}COLLECTING BUILD OUTPUT FILES${NC}"
-rm -rf lexus-files
 mkdir -p lexus-files
 cp -r out/target/product/lexus/lineage-22.2* lexus-files/ 2>/dev/null
 cp -r out/target/product/lexus/{recovery.img,boot.img,init_boot.img,vendor_boot.img,vendor_dlkm.img,system_dlkm.img} lexus-files/ 2>/dev/null
