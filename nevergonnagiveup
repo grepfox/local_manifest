@@ -54,6 +54,10 @@ git clone --depth=1 https://github.com/derpbygrep/device_oneplus_lexus device/on
 rm -rf vendor/oneplus
 git clone --depth=1 https://gitea.com/grepfox/vendor_oneplus vendor/oneplus
 
+#git clone --depth=1 https://github.com//OnePlus-12-Development/android_kernel_qcom_sm8650-modules kernel/qcom/sm8650-modules
+#git clone --depth=1 https://github.com//OnePlus-12-Development/android_kernel_qcom_sm8650-devicetrees kernel/qcom/sm8650-devicetrees
+#git clone --depth=1 https://github.com/OnePlus-12-Development/android_kernel_qcom_sm8650 kernel/qcom/sm8650
+
 echo -e "${YELLOW}SOURCING BUILD ENVIRONMENT${NC}"
 source build/envsetup.sh
 export TZ=Asia/Kolkata
