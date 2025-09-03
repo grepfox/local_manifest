@@ -63,8 +63,8 @@ source build/envsetup.sh
 export TZ=Asia/Kolkata
 
 echo -e "${YELLOW}SETTING BUILD TARGET AND OPTIONS${NC}"
-m installclean
-brunch lexus eng
+#m installclean
+brunch lexus
 
 echo -e "${YELLOW}COLLECTING BUILD OUTPUT FILES${NC}"
 rm -rf lexus-files
