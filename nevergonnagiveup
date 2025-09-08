@@ -64,6 +64,7 @@ git clone https://github.com/derpbygrep/device_oneplus_lexus-kernel device/onepl
 echo -e "${YELLOW}SOURCING BUILD ENVIRONMENT${NC}"
 source build/envsetup.sh
 export TZ=Asia/Kolkata
+rm -rf hardware/oplus/aidl/vibrator
 
 echo -e "${YELLOW}SETTING BUILD TARGET AND OPTIONS${NC}"
 #m installclean
