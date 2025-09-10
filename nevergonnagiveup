@@ -65,6 +65,7 @@ echo -e "${YELLOW}SOURCING BUILD ENVIRONMENT${NC}"
 source build/envsetup.sh
 export TZ=Asia/Kolkata
 #rm -rf hardware/oplus/aidl/vibrator
+rm -rf out/target/product/lexus/*.zip
 
 echo -e "${YELLOW}SETTING BUILD TARGET AND OPTIONS${NC}"
 m installclean
