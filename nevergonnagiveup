@@ -53,6 +53,8 @@ rm -rf device/oneplus/sm8650-common
 git clone https://github.com/derpbygrep/android_device_oneplus_sm8650-common device/oneplus/sm8650-common  -b lineage-22.2
 rm -rf vendor/oneplus/lexus
 git clone https://github.com/derpbygrep/android_vendor_oneplus_lexus vendor/oneplus/lexus
+rm -rf vendor/oneplus/sm8650-common
+git clone https://github.com/derpbygrep/android_vendor_oneplus_sm8650-common vendor/oneplus/sm8650-common
 
 git clone --depth=1 https://github.com//OnePlus-12-Development/android_kernel_qcom_sm8650-modules kernel/qcom/sm8650-modules
 git clone --depth=1 https://github.com//OnePlus-12-Development/android_kernel_qcom_sm8650-devicetrees kernel/qcom/sm8650-devicetrees
