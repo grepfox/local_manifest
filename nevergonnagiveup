@@ -72,7 +72,7 @@ cp -r out/target/product/vayu/vayu.json release-files/
 cat out/target/product/vayu/vayu.json
 export YAAP_BUILDTYPE=Banshee
 export TARGET_BUILD_GAPPS=true
-lunch yaap_vayu-userdebug
+lunch yaap_vayu-user
 m yaap
 cp -r out/target/product/vayu/vayu.json release-files/vayu_banshee.json
 cp -r out/target/product/vayu/YAAP-16* release-files/
