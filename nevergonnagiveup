@@ -39,14 +39,14 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 fi
 
 echo -e "${YELLOW}CLONING DEVICE AND KERNEL REPOSITORIES${NC}"
-rm -rf kernel/oneplus/sm8650
-git clone --depth=1 https://github.com/OnePlus-12-Development/android_kernel_oneplus_sm8650 kernel/oneplus/sm8650
 rm -rf hardware/oplus
 git clone --depth=1 https://github.com/derpbygrep/android_hardware_oplus hardware/oplus -b lineage-22.2
+rm -rf kernel/oneplus/sm8650
+git clone --depth=1 https://github.com/Oneplus-Nord5-development/android_kernel_oneplus_sm8650 kernel/oneplus/sm8650
 rm -rf kernel/oneplus/sm8650-modules
-git clone --depth=1 https://github.com/derpbygrep/android_kernel_oneplus_sm8650-modules kernel/oneplus/sm8650-modules
+git clone --depth=1 https://github.com/Oneplus-Nord5-development/android_kernel_oneplus_sm8650-modules kernel/oneplus/sm8650-modules
 rm -rf kernel/oneplus/sm8650-devicetrees
-git clone --depth=1 https://github.com/derpbygrep/android_kernel_oneplus_sm8650-devicetrees kernel/oneplus/sm8650-devicetrees
+git clone --depth=1 https://github.com/Oneplus-Nord5-development/android_kernel_oneplus_sm8650-devicetrees kernel/oneplus/sm8650-devicetrees
 rm -rf device/oneplus/lexus
 git clone https://github.com/derpbygrep/device_oneplus_lexus device/oneplus/lexus  -b lineage-22.2
 rm -rf device/oneplus/sm8650-common
