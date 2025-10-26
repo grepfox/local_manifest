@@ -46,7 +46,7 @@ git clone --depth=1 https://github.com/Oneplus-Nord5-development/android_kernel_
 rm -rf kernel/oneplus/sm8650-modules
 git clone --depth=1 https://github.com/Oneplus-Nord5-development/android_kernel_oneplus_sm8650-modules kernel/oneplus/sm8650-modules -b lineage-23.0
 rm -rf kernel/oneplus/sm8650-devicetrees
-git clone --depth=1 https://github.com/derpbygrep/android_kernel_oneplus_sm8650-devicetrees kernel/oneplus/sm8650-devicetrees -b lineage-23.0
+git clone --depth=1 https://github.com/derpbygrep/kernel_oplus_sm8635-devicetrees kernel/oneplus/sm8650-devicetrees -b lineage-23.0
 rm -rf device/oneplus/lexus
 git clone https://github.com/Oneplus-Nord5-development/android_device_oneplus_lexus device/oneplus/lexus -b staging
 rm -rf device/oneplus/sm8650-common
