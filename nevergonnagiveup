@@ -81,7 +81,7 @@ brunch lexus
 echo -e "${YELLOW}COLLECTING BUILD OUTPUT FILES${NC}"
 mkdir -p lexus-files
 cp -r out/target/product/lexus/lineage-23.0* lexus-files/ 2>/dev/null
-cp -r out/target/product/lexus/{recovery.img,boot.img,init_boot.img,vendor_boot.img} lexus-files/ 2>/dev/null
+cp -r out/target/product/lexus/{recovery.img,boot.img,dtbo.img,init_boot.img,vendor_boot.img} lexus-files/ 2>/dev/null
 
 echo -e "${YELLOW}CLEANING UP REPOS AFTER BUILD${NC}"
 rm -rf prebuilts/clang/host/linux-x86
