@@ -26,7 +26,7 @@ rm -rf lexus-files
 echo -e "${YELLOW}NUKING OLD STUFF${NC}"
 
 echo -e "${YELLOW}INITIALIZING REPO WITH LINEAGE MANIFEST${NC}"
-repo init https://github.com/LineageOS/android.git -b lineage-23.0 --git-lfs --depth=1
+repo init https://github.com/crdroidandroid/android.git -b 16.0 --git-lfs --depth=1
 
 echo -e "${YELLOW}REMOVING OLD PREBUILTS AND HARDWARE REPOS${NC}"
 rm -rf prebuilts/clang/host/linux-x86
