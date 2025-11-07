@@ -73,15 +73,15 @@ git clone https://$GH_TOKEN@github.com/grepfox/lexus-priv vendor/lineage-priv/ke
 
 echo -e "${YELLOW}SOURCING BUILD ENVIRONMENT${NC}"
 source build/envsetup.sh
-export TZ=Asia/Kolkata
-export SKIP_ABI_CHECKS=true
-#breakfast lexus
 #rm -rf hardware/oplus/aidl/vibrator
 rm -rf out/target/product/lexus/*.zip
 rm -rf out/target/product/lexus/*.zip*
 
 echo -e "${YELLOW}SETTING BUILD TARGET AND OPTIONS${NC}"
-#m installclean
+breakfast lexus
+export TZ=Asia/Kolkata
+export SKIP_ABI_CHECKS=true
+m installclean
 brunch lexus
 
 echo -e "${YELLOW}COLLECTING BUILD OUTPUT FILES${NC}"
