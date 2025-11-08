@@ -42,7 +42,7 @@ echo -e "${YELLOW}CLONING DEVICE AND KERNEL REPOSITORIES${NC}"
 rm -rf hardware/oplus
 git clone --depth=1 https://github.com/LineageOS/android_hardware_oplus hardware/oplus -b lineage-23.0
 rm -rf kernel/oneplus/sm8650
-git clone --depth=1 https://github.com/LineageOS/android_kernel_oneplus_sm8650 kernel/oneplus/sm8650 
+git clone --depth=1 https://github.com/grepfox/android_kernel_oneplus_sm8650 kernel/oneplus/sm8650 
 rm -rf kernel/oneplus/sm8650-modules
 git clone --depth=1 https://github.com/Oneplus-Nord5-development/android_kernel_oneplus_sm8650-modules kernel/oneplus/sm8650-modules -b lineage-23.0
 rm -rf kernel/oneplus/sm8650-devicetrees
