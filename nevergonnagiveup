@@ -58,7 +58,7 @@ git clone https://github.com/Oneplus-Nord5-development/android_vendor_oneplus_sm
 #git clone https://github.com/Oneplus-Nord5-development/android_device_oneplus_lexus-prebuilt device/oneplus/lexus-prebuilts
 
 rm -rf device/oneplus/lexus-kernel
-git clone https://github.com/Oneplus-Nord5-development/android_device_oneplus_lexus-kernel device/oneplus/lexus-prebuilts
+git clone https://github.com/Oneplus-Nord5-development/android_device_oneplus_lexus-kernel device/oneplus/lexus-kernel
 #rm -rf device/oneplus/lexus-prebuilts/kernel-headers
 #rm -rf device/oneplus/lexus-prebuilts/modules
 rm -rf vendor/lineage-priv/keys
