@@ -79,6 +79,7 @@ m installclean
 brunch lexus
 
 echo -e "${YELLOW}COLLECTING BUILD OUTPUT FILES${NC}"
+rm -rf lexus-files
 mkdir -p lexus-files
 cp -r out/target/product/lexus/lineage-23.0* lexus-files/ 2>/dev/null
 cp -r out/target/product/lexus/crDroidAndroid-16.0* lexus-files/ 2>/dev/null
