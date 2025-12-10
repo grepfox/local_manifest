@@ -1,100 +1,73 @@
-#!/bin/bash
-
 echo "========================================"
-echo "      STARTING YAAP BUILD SCRIPT        "
+echo "        STARTING YAAP BUILD SCRIPT      "
 echo "========================================"
 
-echo "========== REMOVING OLD LOCAL MANIFESTS =========="
-rm -rf .repo/local_manifests
-rm -rf release-files
-
-echo "========== NUKING OLD STUFF =========="
-rm -rf vendor/xiaomi/vayu
-rm -rf device/xiaomi/vayu
-rm -rf kernel/xiaomi/vayu
-
-echo "========== INITIALIZING REPO WITH YAAP MANIFEST =========="
+# ---------- INIT REPO ----------
+echo "========== INITIALIZING YAAP MANIFEST =========="
 repo init -u https://github.com/yaap/manifest -b sixteen --git-lfs --depth=1
+
+
+# ---------- CLEANUP ----------
+echo "========== CLEANING OLD MANIFESTS =========="
+rm -rf .repo/local_manifests release-files device/xiaomi/vayu kernel/xiaomi/vayu vendor/xiaomi/vayu prebuilts/clang/host/linux-x86 hardware/xiaomi vendor/yaap
 
 echo "========== CLONING LOCAL MANIFESTS =========="
 git clone https://github.com/grepfox/local_manifest -b yaap .repo/local_manifests
 
-echo "========== REMOVING OLD PREBUILTS AND HARDWARE REPOS =========="
-rm -rf prebuilts/clang/host/linux-x86
-rm -rf hardware/xiaomi
-rm -rf vendor/yaap
-
-echo "========== RUNNING SYNC SCRIPT =========="
-
+# ---------- SYNC ----------
+echo "========== SYNCING REPO =========="
 if [ -f /opt/crave/resync.sh ]; then
     /opt/crave/resync.sh
 else
-    repo sync -j8 --force-sync
+    repo sync -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 fi
 
-# DisplayFeatures
-# echo "========== CLONING DISPLAYFEATURES APP =========="
+# ---------- DisplayFeatures ----------
+echo "========== UPDATING DisplayFeatures =========="
 rm -rf packages/apps/DisplayFeatures
 git clone https://github.com/yaap/packages_apps_DisplayFeatures packages/apps/DisplayFeatures
-#rm -rf packages/apps/Launcher3
-#git clone https://github.com/sm8150-playground/packages_apps_Launcher3 packages/apps/Launcher3 --depth=1
 
-#echo "========== CLONING CLANG PREBUILTS =========="
-#git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 --depth=1 --single-branch -b android-16.0.0_r1 prebuilts/clang/host/linux-x86
-
-echo "========== REPLACING YAAP VENDOR REPO =========="
-#rm -rf vendor/yaap
-#git clone https://github.com/yaap/vendor_yaap -b sixteen-staging --depth=1 --single-branch vendor/yaap
-
+# ---------- Signing Keys ----------
 echo "========== CLONING SIGNING KEYS =========="
 rm -rf vendor/yaap/signing/keys
 git clone https://$GH_TOKEN@github.com/grepfox/yaap_sign vendor/yaap/signing/keys
 
-echo "========== SOURCING BUILD ENVIRONMENT =========="
+# ---------- BUILD ENV ----------
+echo "========== SOURCING build/envsetup.sh =========="
 source build/envsetup.sh
-export TZ=Asia/Kolkata
+export TZ="Asia/Kolkata"
 
-echo "========== SETTING BUILD TARGET AND OPTIONS =========="
-#export YAAP_BUILDTYPE=Banshee
-#export TARGET_BUILD_GAPPS=true
-export YAAP_BUILDTYPE=Vanilla
-export TARGET_BUILD_GAPPS=false
+# ---------- BUILD CONFIG ----------
+echo "========== CONFIGURING YAAP BUILD =========="
+export YAAP_BUILDTYPE=Banshee
+export TARGET_BUILD_GAPPS=true
 lunch yaap_vayu-user
 
-echo "========== CLEANING PREVIOUS BUILD ARTIFACTS =========="
+# ---------- CLEAN ----------
+echo "========== INSTALLCLEAN =========="
 m installclean
 
+# ---------- BUILD ----------
 echo "========== STARTING YAAP BUILD =========="
 m yaap
-mkdir release-files
+
+# ---------- COPY OUTPUT ----------
+echo "========== COPYING RELEASE FILES =========="
+mkdir -p release-files
 cp -r out/target/product/vayu/YAAP-16* release-files/
 cp -r out/target/product/vayu/vayu.json release-files/
-cat out/target/product/vayu/vayu.json
-#export YAAP_BUILDTYPE=Banshee
-#export TARGET_BUILD_GAPPS=true
-#lunch yaap_vayu-user
-#m yaap
-#cp -r out/target/product/vayu/vayu.json release-files/vayu_banshee.json
-#cp -r out/target/product/vayu/YAAP-16* release-files/
 
-echo "========== CLEANING UP REPOS AFTER BUILD =========="
-rm -rf prebuilts/clang/host/linux-x86
-rm -rf vendor/yaap/signing/keys
-rm -rf vendor/yaap
+# ---------- POST-BUILD CLEANUP ----------
+echo "========== POST-BUILD CLEANUP =========="
+rm -rf prebuilts/clang/host/linux-x86 vendor/yaap/signing/keys vendor/yaap
 
-echo "========== BUILD COMPLETE - CHECKING FOR ERRORS =========="
-if [ -f out/error.log ]; then
-    cat out/error.log
-else
-    echo "NO ERROR LOG FOUND - BUILD COMPLETED SUCCESSFULLY"
-fi
-
-echo "========== Sharing output dir ls =========="
+# ---------- OUTPUT ----------
+echo "========== BUILD OUTPUT =========="
 ls out/target/product/vayu
 
-echo "========== YAAP Build info =========="
+echo "========== YAAP DEVICE JSON =========="
 cat out/target/product/vayu/vayu.json
 
 echo "========================================"
-echo "        YAAP BUILD DONE          "
+echo "        YAAP BUILD COMPLETED            "
 echo "========================================"
