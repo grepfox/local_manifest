@@ -57,6 +57,13 @@ mkdir -p release-files
 cp -r out/target/product/vayu/YAAP-16* release-files/
 cp -r out/target/product/vayu/vayu.json release-files/
 
+echo "========== BUILD COMPLETE - CHECKING FOR ERRORS =========="
+if [ -f out/error.log ]; then
+    cat out/error.log
+else
+    echo "NO ERROR LOG FOUND - BUILD COMPLETED SUCCESSFULLY"
+fi
+
 # ---------- POST-BUILD CLEANUP ----------
 echo "========== POST-BUILD CLEANUP =========="
 rm -rf prebuilts/clang/host/linux-x86 vendor/yaap/signing/keys vendor/yaap
