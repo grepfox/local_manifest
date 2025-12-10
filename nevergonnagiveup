@@ -35,7 +35,7 @@ git clone https://$GH_TOKEN@github.com/grepfox/yaap_sign vendor/yaap/signing/key
 # ---------- BUILD ENV ----------
 echo "========== SOURCING build/envsetup.sh =========="
 source build/envsetup.sh
-export TZ="Asia/Kolkata"
+#export TZ="Asia/Kolkata"
 
 # ---------- BUILD CONFIG ----------
 echo "========== CONFIGURING YAAP BUILD =========="
