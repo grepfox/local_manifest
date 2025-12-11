@@ -26,7 +26,7 @@ rm -rf lexus-files
 echo -e "${YELLOW}NUKING OLD STUFF${NC}"
 
 echo -e "${YELLOW}INITIALIZING REPO WITH LINEAGE MANIFEST${NC}"
-repo init https://github.com/LineageOS/android.git -b lineage-23.0 --git-lfs --depth=1
+repo init https://github.com/LineageOS/android.git -b lineage-23.1 --git-lfs --depth=1
 
 git clone https://github.com/Oneplus-Nord5-development/local_manifests .repo/local_manifests -b 23.1
 
@@ -54,7 +54,6 @@ echo -e "${YELLOW}COLLECTING BUILD OUTPUT FILES${NC}"
 rm -rf lexus-files
 mkdir -p lexus-files
 cp -r out/target/product/lexus/lineage-23.0* lexus-files/ 2>/dev/null
-cp -r out/target/product/lexus/crDroidAndroid-16.0* lexus-files/ 2>/dev/null
 cp -r out/target/product/lexus/{recovery.img,boot.img,dtbo.img,init_boot.img,super_empty.img,vendor_boot.img} lexus-files/ 2>/dev/null
 
 echo -e "${YELLOW}CLEANING UP REPOS AFTER BUILD${NC}"
