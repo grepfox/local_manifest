@@ -32,6 +32,8 @@ git clone https://github.com/Oneplus-Nord5-development/local_manifests .repo/loc
 
 echo -e "${YELLOW}REMOVING OLD PREBUILTS AND HARDWARE REPOS${NC}"
 rm -rf prebuilts/clang/host/linux-x86
+rm -rf hardware/oplus
+rm -rf packages/modules/*
 
 echo -e "${YELLOW}SYNCING SOURCE CODE${NC}"
 if [ -f /opt/crave/resync.sh ]; then
