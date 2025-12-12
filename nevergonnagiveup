@@ -26,7 +26,7 @@ rm -rf lexus-files
 echo -e "${YELLOW}NUKING OLD STUFF${NC}"
 
 echo -e "${YELLOW}INITIALIZING REPO WITH LINEAGE MANIFEST${NC}"
-repo init https://github.com/LineageOS/android.git -b lineage-23.2 --git-lfs --depth=1
+repo init https://github.com/LineageOS/android.git -b lineage-23.1 --git-lfs --depth=1
 
 git clone https://github.com/Oneplus-Nord5-development/local_manifests .repo/local_manifests -b 23.1
 
@@ -43,7 +43,7 @@ fi
 echo -e "${YELLOW}SOURCING BUILD ENVIRONMENT${NC}"
 source build/envsetup.sh
 
-repopick -t BP4A
+#repopick -t BP4A
 
 echo -e "${YELLOW}SETTING BUILD TARGET AND OPTIONS${NC}"
 breakfast lexus
