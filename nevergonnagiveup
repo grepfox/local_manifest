@@ -34,6 +34,7 @@ echo -e "${YELLOW}REMOVING OLD PREBUILTS AND HARDWARE REPOS${NC}"
 rm -rf prebuilts/clang/host/linux-x86
 rm -rf hardware/oplus
 rm -rf packages/modules/Connectivity
+rm -rf vendor/oplus device/oplus
 
 echo -e "${YELLOW}SYNCING SOURCE CODE${NC}"
 if [ -f /opt/crave/resync.sh ]; then
@@ -42,10 +43,6 @@ else
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
 fi
 
-
-#rm -rf hardware/oplus
-#git clone https://github.com/LineageOS/android_hardware_oplus hardware/oplus -b lineage-23.1
-
 rm -rf frameworks/base
 git clone https://github.com/Oneplus-Nord5-development/android_frameworks_base frameworks/base -b lineage-23.0 --depth=1
 rm -rf lineage-sdk
@@ -53,6 +50,10 @@ git clone https://github.com/Oneplus-Nord5-development/android_lineage-sdk linea
 
 echo -e "${YELLOW}SOURCING BUILD ENVIRONMENT${NC}"
 source build/envsetup.sh
+
+# user and host
+export BUILD_USERNAME=grepfox
+export BUILD_HOSTNAME=home
 
 #repopick -t BP4A
 #repopick -b lineage-23.1
