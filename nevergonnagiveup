@@ -43,6 +43,9 @@ fi
 echo -e "${YELLOW}SOURCING BUILD ENVIRONMENT${NC}"
 source build/envsetup.sh
 
+rm -rf hardware/oplus
+git clone https://github.com/LineageOS/android_hardware_oplus hardware/oplus -b lineage-23.1
+
 #repopick -t BP4A
 
 echo -e "${YELLOW}SETTING BUILD TARGET AND OPTIONS${NC}"
