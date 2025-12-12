@@ -46,6 +46,11 @@ fi
 #rm -rf hardware/oplus
 #git clone https://github.com/LineageOS/android_hardware_oplus hardware/oplus -b lineage-23.1
 
+rm -rf frameworks/base
+git clone https://github.com/Oneplus-Nord5-development/android_frameworks_base frameworks/base -b lineage-23.0 --depth=1
+rm -rf lineage-sdk
+git clone https://github.com/Oneplus-Nord5-development/android_lineage-sdk lineage-sdk
+
 echo -e "${YELLOW}SOURCING BUILD ENVIRONMENT${NC}"
 source build/envsetup.sh
 
