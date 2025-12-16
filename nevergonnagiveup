@@ -44,7 +44,7 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 fi
 
 rm -rf hardware/oplus
-git clone https://github.com/LineageOS/android_hardware_oplus
+git clone https://github.com/LineageOS/android_hardware_oplus hardware/oplus
 
 rm -rf frameworks/base
 git clone https://github.com/Oneplus-Nord5-development/android_frameworks_base frameworks/base -b lineage-23.0 --depth=1
