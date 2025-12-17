@@ -53,6 +53,8 @@ git clone https://github.com/Oneplus-Nord5-development/android_frameworks_base f
 #git clone https://github.com/Oneplus-Nord5-development/android_lineage-sdk lineage-sdk
 rm -rf vendor/lineage
 git clone https://github.com/Oneplus-Nord5-development/android_vendor_lineage vendor/lineage
+rm -rf packages/apps/Launcher3
+git clone https://github.com/mayuresh2543/lineage_packages_apps_Launcher3 packages/apps/Launcher3 --depth=1
 
 echo -e "${YELLOW}SOURCING BUILD ENVIRONMENT${NC}"
 source build/envsetup.sh
