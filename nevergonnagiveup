@@ -43,6 +43,7 @@ else
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
 fi
 
+rm -rf android_hardware_oplus
 rm -rf hardware/oplus
 git clone https://github.com/LineageOS/android_hardware_oplus hardware/oplus -b lineage-23.0
 
