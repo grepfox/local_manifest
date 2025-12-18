@@ -53,6 +53,8 @@ git clone https://github.com/Oneplus-Nord5-development/android_frameworks_base f
 #git clone https://github.com/Oneplus-Nord5-development/android_lineage-sdk lineage-sdk
 rm -rf packages/apps/Launcher3
 git clone https://github.com/mayuresh2543/lineage_packages_apps_Launcher3 packages/apps/Launcher3 --depth=1
+rm -rf vendor/oneplus/sm8650-common
+git clone https://github.com/TheMuppets/proprietary_vendor_oneplus_sm8650-common vendor/oneplus/sm8650 -b lineage-23.0
 
 echo -e "${YELLOW}SOURCING BUILD ENVIRONMENT${NC}"
 source build/envsetup.sh
@@ -90,5 +92,5 @@ fi
 
 echo -e "${YELLOW}OUTPUT DIRECTORY CONTENTS${NC}"
 ls -lh out/target/product/lexus
-#rm -rf vendor/lineage-priv/keys
+rm -rf vendor/lineage-priv/keys
 banner "LINEAGE BUILD DONE"
