@@ -91,5 +91,5 @@ fi
 
 echo -e "${YELLOW}OUTPUT DIRECTORY CONTENTS${NC}"
 ls -lh out/target/product/lexus
-rm -rf vendor/lineage-priv/keys
+#rm -rf vendor/lineage-priv/keys
 banner "LINEAGE BUILD DONE"
