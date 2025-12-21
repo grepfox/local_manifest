@@ -41,7 +41,7 @@ source build/envsetup.sh
 echo "========== CONFIGURING YAAP BUILD =========="
 export YAAP_BUILDTYPE=Banshee
 export TARGET_BUILD_GAPPS=true
-lunch yaap_vayu-user
+lunch yaap_vayu-userdebug
 
 # ---------- CLEAN ----------
 echo "========== INSTALLCLEAN =========="
