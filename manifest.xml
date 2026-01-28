@@ -58,10 +58,10 @@
       revision="lineage-23.2" />
 
   <project
-      name="proprietary_vendor_oneplus_sm8650-common"
+      name="vendor_oneplus_sm8650-common"
       path="vendor/oneplus/sm8650-common"
-      remote="ghlab"
-      revision="lineage-23.2" />
+      remote="opn5"
+      revision="sixteen" />
   
   <project
       name="android_kernel_oneplus_sm8650"
